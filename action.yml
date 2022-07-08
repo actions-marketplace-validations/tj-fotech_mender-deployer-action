@@ -1,4 +1,4 @@
-name: 'mender-deployer-action'
+name: 'fotech-mender-deployer-action'
 description: 'A very slim action that uses basic auth to create a deployment on your managed mender server.'
 branding:
   icon: 'upload-cloud'

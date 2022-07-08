@@ -1,0 +1,38 @@
+name: 'mender-deployer-action'
+description: 'A very slim action that uses basic auth to create a deployment on your managed mender server.'
+branding:
+  icon: 'upload-cloud'
+  color: 'green'
+inputs:
+  mender-deployment-name:
+    description: 'Name of the deployment'
+    required: true
+  mender-artifact-name:
+    description: 'Name of the artifact already sat on the mender server'
+    required: true
+  mender-device-group:
+    description: 'Name of a predefined device group'
+    required: true
+  mender-deployment-retries:
+    description: 'Number of deployment retries'
+    required: true
+  mender-auth-username:
+    description: 'Mender server basic auth username'
+    required: true
+  mender-auth-password:
+    description: 'Mender server basic auth password'
+    required: true
+  mender-server-url:
+    description: 'Mender server url'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ mender-deployment-name }}
+    - ${{ mender-artifact-name }}
+    - ${{ mender-device-group }}
+    - ${{ mender-deployment-retries }}
+    - ${{ mender-auth-username }}
+    - ${{ mender-auth-password }}
+    - ${{ mender-server-url }}
